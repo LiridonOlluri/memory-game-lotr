@@ -86,6 +86,7 @@ function App() {
   return (
     <div className="App">
         <h1>LORD OF THE RINGS MEMORY GAME</h1>
+         <p>Turns: {turns}</p>
          <div className="not_win" id="nt_win">
             <div className='if_win' id="alert_win">
                <h2>YOUR WIN</h2>
@@ -99,7 +100,6 @@ function App() {
               disabled={disabled} />
             ))}
         </div>
-        <p>Turns: {turns}</p>
     </div>
   );
 }
