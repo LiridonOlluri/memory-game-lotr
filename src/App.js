@@ -48,7 +48,7 @@ function App() {
 
       // if is true all cards, YOU WIN!
       const isTrueCard =  cards.filter(item => item.matched === true);
-      if(isTrueCard.length == "12"){
+      if(isTrueCard.length === "12"){
         console.log("COMPLETE GAME")
         document.getElementById("nt_win").style.display = "block";
       }
