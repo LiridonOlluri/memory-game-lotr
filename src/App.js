@@ -13,7 +13,7 @@ const cardImage = [
     {"src": "/img/sauron.png", matched:false}
 ]
 
-// console.log(cardImage[1].matched)
+
 function App() {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
@@ -37,6 +37,7 @@ function App() {
       setChoiceTwo(null)
       setCards(shuffledCards)
       setTurns(0)
+      document.getElementById("nt_win").style.display = "none";
   }
   // function handle a choice
   const handleChoice = (card) =>{
@@ -44,6 +45,16 @@ function App() {
   }
   //function compare two card
   useEffect(() =>{
+
+      // if is true all cards, YOU WIN!
+      const isTrueCard =  cards.filter(item => item.matched === true);
+      if(isTrueCard.length == "12"){
+        console.log("COMPLETE GAME")
+        document.getElementById("nt_win").style.display = "block";
+      }
+
+
+
     if(choiceOne && choiceTwo){
       setDisabled(true)
       if(choiceOne.src === choiceTwo.src){
@@ -61,14 +72,7 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
-  // if is true all cards, YOU WIN!
-    const isTrueCard =  cards.filter(item => item.matched === true);
-    if(isTrueCard.length == "12"){
-      console.log("COMPLETE GAME")
-      document.getElementById("nt_win").style.display = "block";
-    }else{
-      document.getElementById("nt_win").style.display = "none";
-    }
+
 
 
   //function reset choices
