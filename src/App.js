@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCards from './components/SingleCards';
-import ModalDialog from './components/ModalDialog';
+
 
 
 const cardImage = [
