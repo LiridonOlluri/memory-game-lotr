@@ -45,16 +45,6 @@ function App() {
   }
   //function compare two card
   useEffect(() =>{
-
-      // if is true all cards, YOU WIN!
-      const isTrueCard =  cards.filter(item => item.matched === true);
-      if(isTrueCard.length === "12"){
-        console.log("COMPLETE GAME")
-        document.getElementById("nt_win").style.display = "block";
-      }
-
-
-
     if(choiceOne && choiceTwo){
       setDisabled(true)
       if(choiceOne.src === choiceTwo.src){
@@ -72,6 +62,13 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
+      // if is true all cards, YOU WIN!
+      const isTrueCard =  cards.filter(item => item.matched === true);
+      console.log(isTrueCard,"IS TRUE CARDDDDD")
+      if(isTrueCard.length == 12){
+        console.log("COMPLETE GAME")
+        document.getElementById("nt_win").style.display = "block";
+      }
 
 
 
