@@ -86,7 +86,7 @@ function App() {
          <p>Turns: {turns}</p>
          <div className="not_win" id="nt_win">
             <div className='if_win' id="alert_win">
-               <h2>YOUR WIN</h2>
+               <h2>YOU WIN</h2>
             </div>
             <button onClick={shuffleCards}>New Game</button>
           </div>
