@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCards from './components/SingleCards';
-
+import ModalDialog from './components/ModalDialog';
 
 
 const cardImage = [
@@ -61,7 +61,14 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
-  // console.log(cards[2].matched)
+  // if is true all cards, YOU WIN!
+    const isTrueCard =  cards.filter(item => item.matched === true);
+    if(isTrueCard.length == "12"){
+      console.log("COMPLETE GAME")
+      document.getElementById("nt_win").style.display = "block";
+    }else{
+      document.getElementById("nt_win").style.display = "none";
+    }
 
 
   //function reset choices
@@ -75,8 +82,12 @@ function App() {
   return (
     <div className="App">
         <h1>LORD OF THE RINGS MEMORY GAME</h1>
-        <button onClick={shuffleCards}>New Game</button>
-
+         <div className="not_win" id="nt_win">
+            <div className='if_win' id="alert_win">
+               <h2>YOUR WIN</h2>
+            </div>
+            <button onClick={shuffleCards}>New Game</button>
+          </div>
         <div className="card-grid">
             {cards.map(card =>(
               <SingleCards key={card.id} card={card} handleChoice={handleChoice} 
